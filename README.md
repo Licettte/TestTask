@@ -1,5 +1,6 @@
 Стек:
  **Backend:** ASP.NET 8 Web API, Swagger, Entity Framework Core, Dapper, PostgreSQL
+ 
  **Frontend:** Angular + TypeScript + SCSS + RxJS + ESLint + Prettier + Husky
 
 ---
