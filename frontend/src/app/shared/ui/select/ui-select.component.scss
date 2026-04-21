@@ -1,0 +1,23 @@
+.select-field {
+  display: grid;
+  gap: 8px;
+}
+
+.select-field__label {
+  font-weight: 600;
+}
+
+.select-field__control {
+  width: 100%;
+  min-height: 46px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 0 14px;
+  outline: none;
+}
+
+.select-field__error {
+  color: var(--danger-text);
+  font-size: 12px;
+}

@@ -1,0 +1,52 @@
+<app-ui-modal [isOpen]="true" title="Добавить запись" (close)="close.emit()">
+  <form class="create-form" [formGroup]="formGroup" (ngSubmit)="submitForm()">
+    <div class="create-form__grid">
+      <app-ui-input
+        label="Имя"
+        [control]="formGroup.controls.firstName"
+        errorText="Введите имя от 2 до 50 символов." />
+
+      <app-ui-input
+        label="Фамилия"
+        [control]="formGroup.controls.lastName"
+        errorText="Введите фамилию от 2 до 50 символов." />
+
+      <app-ui-input
+        label="Отчество"
+        [control]="formGroup.controls.middleName"
+        errorText="Введите отчество от 2 до 50 символов." />
+
+      <app-ui-input
+        label="Год рождения"
+        type="number"
+        [control]="formGroup.controls.birthYear"
+        errorText="Укажите корректный год рождения." />
+
+      <app-ui-input
+        label="Город"
+        [control]="formGroup.controls.city"
+        errorText="Введите город от 2 до 80 символов." />
+
+      <app-ui-select
+        label="Категория вождения"
+        [control]="formGroup.controls.drivingCategory"
+        [options]="drivingCategoryOptions" />
+    </div>
+
+    <app-ui-checkbox
+      label="Обучение оплачено"
+      [control]="formGroup.controls.isTuitionPaid" />
+
+    <div class="create-form__actions">
+      <app-ui-button
+        text="Отмена"
+        variant="secondary"
+        (buttonClick)="close.emit()" />
+
+      <app-ui-button
+        text="Сохранить"
+        type="submit"
+        [loading]="isSubmitting()" />
+    </div>
+  </form>
+</app-ui-modal>

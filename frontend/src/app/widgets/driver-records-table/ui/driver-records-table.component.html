@@ -1,0 +1,44 @@
+<div class="table-state" *ngIf="records.length === 0">
+  Ничего не найдено. Попробуйте изменить поиск или добавить новую запись.
+</div>
+
+<div class="table-wrapper" *ngIf="records.length > 0">
+  <table class="records-table">
+    <thead>
+      <tr>
+        <th>Фамилия</th>
+        <th>Имя</th>
+        <th>Отчество</th>
+        <th>Год рождения</th>
+        <th>Город</th>
+        <th>Категория</th>
+        <th>Оплата</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let record of records; trackBy: trackByRecordId">
+        <td>{{ record.lastName }}</td>
+        <td>{{ record.firstName }}</td>
+        <td>{{ record.middleName }}</td>
+        <td>{{ record.birthYear }}</td>
+        <td>{{ record.city }}</td>
+        <td>{{ record.drivingCategory }}</td>
+        <td>
+          <button
+            type="button"
+            class="payment-toggle"
+            [disabled]="isUpdatingPaymentId === record.id"
+            (click)="paymentStatusToggled.emit(record)">
+            <span
+              class="status-chip"
+              [class.status-chip--paid]="record.isTuitionPaid"
+              [class.status-chip--unpaid]="!record.isTuitionPaid">
+              {{ record.isTuitionPaid ? 'Оплачено' : 'Не оплачено' }}
+            </span>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

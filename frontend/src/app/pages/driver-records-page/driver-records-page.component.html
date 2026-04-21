@@ -1,0 +1,42 @@
+<section class="page">
+  <div class="container">
+    <header class="page__header">
+      <div>
+        <p class="page__eyebrow">Lasmart</p>
+        <h1>Реестр учеников автошколы</h1>
+        <p class="page__description">
+          Актуальные записи загружаются сразу после открытия страницы.
+          Можно найти нужного человека, обновить список и добавить новую запись.
+        </p>
+      </div>
+
+      <div class="page__actions">
+        <app-ui-button
+          text="Обновить"
+          variant="secondary"
+          [loading]="isListRefreshing()"
+          (buttonClick)="refreshList()" />
+
+        <app-ui-button
+          text="Добавить запись"
+          (buttonClick)="openCreateModal()" />
+      </div>
+    </header>
+
+    <section class="toolbar card">
+      <app-driver-record-search />
+    </section>
+
+    <section class="table-card card">
+      <app-driver-records-table
+        [records]="records()"
+        [isUpdatingPaymentId]="updatingPaymentRecordId()"
+        (paymentStatusToggled)="togglePaymentStatus($event)" />
+    </section>
+  </div>
+
+  <app-create-driver-record-modal
+    *ngIf="isCreateModalOpen()"
+    (close)="closeCreateModal()"
+    (created)="handleRecordCreated()" />
+</section>

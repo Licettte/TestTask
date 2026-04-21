@@ -1,0 +1,24 @@
+# Node
+frontend/node_modules
+frontend/.angular
+frontend/dist
+frontend/coverage
+
+# .NET
+backend/**/bin
+backend/**/obj
+backend/.vs
+
+# Env
+frontend/src/environments/environment*.local.ts
+backend/src/Lasmart.DriverRecords.Api/appsettings.Development.local.json
+backend/src/Lasmart.DriverRecords.Api/appsettings.local.json
+
+# Logs
+*.log
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode
+.idea

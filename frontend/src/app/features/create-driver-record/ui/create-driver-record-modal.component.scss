@@ -1,0 +1,22 @@
+.create-form {
+  display: grid;
+  gap: 20px;
+}
+
+.create-form__grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.create-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .create-form__grid {
+    grid-template-columns: 1fr;
+  }
+}
